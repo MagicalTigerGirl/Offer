@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.practicaexamen.viewmodel.OfferViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.FirstFragment">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glBegin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintGuide_begin="20dp"
+            android:orientation="vertical" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintGuide_end="20dp"
+            android:orientation="vertical" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="tvElectronic, tvGames, tvHome"
+            app:barrierDirection="right" />
+
+        <TextView
+            android:id="@+id/tvHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="HOME"
+            app:layout_constraintEnd_toStartOf="@+id/barrier"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/glBegin"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvElectronic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="200dp"
+            android:layout_marginTop="16dp"
+            android:text="ELECTRONIC"
+            app:layout_constraintEnd_toStartOf="@+id/barrier"
+            app:layout_constraintStart_toStartOf="@+id/glBegin"
+            app:layout_constraintTop_toBottomOf="@+id/tvHome" />
+
+        <TextView
+            android:id="@+id/tvGames"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="GAMES"
+            app:layout_constraintEnd_toStartOf="@+id/barrier"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/glBegin"
+            app:layout_constraintTop_toBottomOf="@+id/tvElectronic" />
+
+        <Button
+            android:id="@+id/btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/next"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="@={viewmodel.swHome}"
+            app:layout_constraintBottom_toBottomOf="@+id/tvHome"
+            app:layout_constraintEnd_toStartOf="@+id/glEnd"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/tvHome"
+            app:layout_constraintTop_toTopOf="@+id/tvHome" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swElectronic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="@={viewmodel.swElectronic}"
+            app:layout_constraintBottom_toBottomOf="@+id/tvElectronic"
+            app:layout_constraintEnd_toStartOf="@+id/glEnd"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/tvElectronic"
+            app:layout_constraintTop_toTopOf="@+id/tvElectronic" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swGames"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="@={viewmodel.swGames}"
+            app:layout_constraintBottom_toBottomOf="@+id/tvGames"
+            app:layout_constraintEnd_toStartOf="@+id/glEnd"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/tvGames"
+            app:layout_constraintTop_toTopOf="@+id/tvGames" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
